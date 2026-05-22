@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
     return (
         <nav style={styles.nav}>
-            <h2 style={styles.logo}>🛍️Raju's Store</h2>
+            <h2 className="hidden md:flex text-blue-500 font-bold text-2xl">🛍️Raju's Store</h2>
 
             <ul style={styles.ul}>
                 <li><Link style={styles.link} to="/">Home</Link></li>
