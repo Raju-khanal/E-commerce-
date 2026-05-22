@@ -1,7 +1,17 @@
 import Cardcontext from "./Cardcontext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 function CardProv({ children }) {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const saveCart = localStorage.getItem("saved_cart");
+        return JSON.parse(saveCart) || [];
+    });
+
+
+    useEffect(() => {
+        localStorage.setItem("saved_cart", JSON.stringify(cart));
+    }, [cart])
+
+
 
     function addTocard(product) {
         setCart((prevCart) => {
